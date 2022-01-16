@@ -10,13 +10,13 @@ Eigen::Vector2f calculate(Eigen::Vector2f v0) {
    float y0 = v0.y();
 
    // First calculate the length of the original vector
-   float L = v0.norm();
-   float x1 = x0 * cos(45/180) - y0 * sin(45/180);
-   float y1 = x0 * sin(45/180) + y0 * cos(45/180);
+   float alpha = 45.0f/180.0f * acos(-1);
+   float x1 = x0 * cos(alpha) - y0 * sin(alpha);
+   float y1 = x0 * sin(alpha) + y0 * cos(alpha);
 
    // Finally add it to vector (1, 2)
    Eigen::Vector2f v1(x1, y1);
-   Eigen::Vector2f v2(1, 2);
+   Eigen::Vector2f v2(1.0f, 2.0f);
    return v1 + v2;
 }
 
@@ -61,5 +61,8 @@ int main(){
     // matrix multiply i * j
     // matrix multiply vector i * v
 
+    Eigen::Vector2f v0(2.0f, 1.0f);
+    std::cout << "Test myself" << std::endl;
+    std::cout << calculate(v0) << std::endl;
     return 0;
 }
