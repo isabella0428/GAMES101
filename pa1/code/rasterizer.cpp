@@ -159,6 +159,7 @@ void rst::rasterizer::draw(rst::pos_buf_id pos_buffer, rst::ind_buf_id ind_buffe
             vec /= vec.w();
         }
 
+        // Viewport Transformation
         for (auto & vert : v)
         {
             vert.x() = 0.5*width*(vert.x()+1.0);
